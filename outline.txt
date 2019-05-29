@@ -6,14 +6,14 @@ ping pong match obj
 - matches have many sets 
 - matches saves winners and losers upon completion
 - matches can be cancelled or quit and does not get saved
-    set obj 
-        - a set has many players through match
-        - a set has a point goal (11 or 21)
-        - each set has a score count
-        - scores should increment/decrement by hitting a button
-        - set should end and get saved to the match when a player reaches 11 or 21 points && has won by 2 points
-        - loop through sets until match win criteria of 2 sets of 3 or 3 sets of 5 has been reached
 
+set obj 
+- a set has many players through match
+- a set has a point goal (11 or 21)
+- each set has a score count
+- scores should increment/decrement by hitting a button
+- set should end and get saved to the match when a player reaches 11 or 21 points && has won by 2 points
+- loop through sets until match win criteria of 2 sets of 3 or 3 sets of 5 has been reached
 
 ping pong player obj
 - players have a username, pin code, and history of matches
