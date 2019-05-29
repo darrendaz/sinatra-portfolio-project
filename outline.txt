@@ -17,4 +17,6 @@ ping pong match obj
 
 ping pong player obj
 - players have a username, pin code, and history of matches
+- players can login to view their stats
+- players can logout
 - has many sets through matches
