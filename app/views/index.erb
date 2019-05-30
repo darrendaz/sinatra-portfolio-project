@@ -2,7 +2,7 @@
     <%if logged_in?%>
         <h1>Welcome <%= @current_user.username %></h1>
         <div>
-            <a href="/users/<%= @current_user.id%>"><h1>My Wishlists</h1></a>
+            <a href="/<%=current_user.id%>/wishlists"><h1>My Wishlists</h1></a>
         </div>
         <div>
             <a href="/wishlists"><h1>Public Wishlists</h1></a>

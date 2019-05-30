@@ -1,0 +1,28 @@
+<div class="container-fluid">
+    <h3><%=current_user.name%>'s Wishlists</h3>
+    <table class="table">
+        <tbody>
+        <% if current_user.wishlists.empty?%>
+            <tr>
+                <td class="text-left">
+                    <p>You haven't created a wishlist yet.</p>
+                    <a href="/wishlists/new">Create a new wishlist</a>
+                </td>
+            </tr>
+        <%else%>
+            <% current_user.wishlists.each do |wishlist|%>
+                <tr>
+                    <td class="text-left">
+                        <a href=""><%=wishlist.name%></a>
+                    </td>
+                    <td class="text-right">
+                        <a href="">edit </a>
+                        |
+                        <a href=""> delete</a>
+                    </td>
+                </tr>
+            <% end %>
+        <%end%>
+        </tbody>
+    </table>
+</div>
