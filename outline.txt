@@ -10,7 +10,7 @@ Users
 wishlists
 - name
 - user_id
-- bought / unbought
+- private / public
 - belongs to user
 - has many items
 
@@ -18,5 +18,6 @@ items
 - name
 - url
 - quantity
+- bought / unbought
 - wishlist_id
 - belongs to wishlist
