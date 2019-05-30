@@ -61,13 +61,15 @@
         <ul class="nav navbar-nav">
             <li><a href="/">Home</a></li>
             <%if logged_in?%>
-                <li class="active"><a href="/users/<%=current_user.id%>">My Wishlists</a></li>
+                <li><a href="/users/<%=current_user.id%>">My Wishlists</a></li>
+                <li><a href="/wishlists">Public Wishlists</a></li>
+                <li><a href="/wishlists/new">New Wishlist</a></li>
+                <li><a href="/items">Items</a></li>
+                <li><a href="/items/new">New Item</a></li>
             <% else %>
-                <li class="active"><a href="/wishlists">Public Wishlists</a></li>
+                <li><a href="/wishlists">Public Wishlists</a></li>
+                <li><a href="/items">Items</a></li>
             <% end %>
-          <li><a href="/wishlists/new">New Wishlist</a></li>
-          <li><a href="/items">Items</a></li>
-          <li><a href="/items/new">New Item</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
           <% if logged_in?%>
@@ -80,7 +82,7 @@
       </div>
     </div>
   </nav>
-  <%= yield %>
+    <%= yield %>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
   </body>

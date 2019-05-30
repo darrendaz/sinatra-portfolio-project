@@ -7,7 +7,6 @@ Users
 - has many wishlists
 - has many items through wishlists
 
-
 wishlists
 - name
 - user_id
