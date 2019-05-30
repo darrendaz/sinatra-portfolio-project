@@ -10,18 +10,6 @@ class ApplicationController < Sinatra::Base
         erb :index
     end
 
-    get '/signup' do
-        erb :"users/new"
-    end
-
-    get '/wishlists' do
-        "wishlists"
-    end
-
-    get '/items' do
-        "items"
-    end
-
     def logged_in?
         !!current_user
     end
