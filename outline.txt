@@ -1,22 +1,23 @@
-Ping Pong Leaderboard
+Wishlist Tracker
 
-ping pong match obj
-- matches belong to many players (1v1 or 2v2)
-- matches have a type (3set or 5set)
-- matches have many sets 
-- matches saves winners and losers upon completion
-- matches can be cancelled or quit and does not get saved
+Users
+- name
+- username
+- password
+- has many wishlists
+- has many items through wishlists
 
-set obj 
-- a set has many players through match
-- a set has a point goal (11 or 21)
-- each set has a score count
-- scores should increment/decrement by hitting a button
-- set should end and get saved to the match when a player reaches 11 or 21 points && has won by 2 points
-- loop through sets until match win criteria of 2 sets of 3 or 3 sets of 5 has been reached
 
-ping pong player obj
-- players have a username, pin code, and history of matches
-- players can login to view their stats
-- players can logout
-- has many sets through matches
+wishlists
+- name
+- user_id
+- bought / unbought
+- belongs to user
+- has many items
+
+items
+- name
+- url
+- quantity
+- wishlist_id
+- belongs to wishlist
