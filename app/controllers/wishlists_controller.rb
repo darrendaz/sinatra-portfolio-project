@@ -1,4 +1,4 @@
-class WishlistsController < Sinatra::Base
+class WishlistsController < ApplicationController
     get '/wishlists' do
         "wishlists"
     end

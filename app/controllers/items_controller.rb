@@ -1,4 +1,4 @@
-class ItemsController < Sinatra::Base
+class ItemsController < ApplicationController
     get '/items' do
         "items"
     end
