@@ -3,7 +3,7 @@
 <form action="/wishlists" method="post">
   <div class="form-group">
     <label for="wishlist-name">Wishlist Name</label>
-    <input type="name" class="form-control" id="wishlist-name" name="name" placeholder="Wishlist name">
+    <input type="name" class="form-control" id="wishlist-name" name="name" value="<%=@wishlist.name%>">
   </div>
   <div class="form-group">
     <input type="hidden" name="private" value="0">

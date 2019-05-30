@@ -13,10 +13,10 @@
             <% current_user.wishlists.each do |wishlist|%>
                 <tr>
                     <td class="text-left">
-                        <a href=""><%=wishlist.name%></a>
+                        <a href="/wishlists/<%=wishlist.id%>"><%=wishlist.name%></a>
                     </td>
                     <td class="text-right">
-                        <a href="">edit </a>
+                        <a href="/wishlists/<%=wishlist.id%>/edit">edit </a>
                         |
                         <a href=""> delete</a>
                     </td>

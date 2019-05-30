@@ -1,14 +1,9 @@
 <div class="container-fluid">
-    <h3>Public Wishlists</h3>
+    <h3><%=@wishlist.name%></h3>
     <table class="table">
         <tbody>
-        <% @public_wishlists.each do |wishlist|%>
-            <tr>
-                <td class="text-left">
-                    <a href=""><%=wishlist.name%></a>
-                </td>
-            </tr>
-        <% end %>
+            <h1>[Associated items table will go here]</h1>
+            <h1>[Not Editable because other users will see it also unless we include logic that alters the view based on current_user]</h1>
         </tbody>
     </table>
 </div>

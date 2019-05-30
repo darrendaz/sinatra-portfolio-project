@@ -13,6 +13,7 @@ wishlists
 - private / public
 - belongs to user
 - has many items
+- wishlists can be CRUD by the user
 
 items
 - name
@@ -21,3 +22,5 @@ items
 - bought / unbought
 - wishlist_id
 - belongs to wishlist
+- items can be added to / removed from wishlists
+- items can be CRUD
