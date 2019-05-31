@@ -61,8 +61,8 @@
         <ul class="nav navbar-nav">
             <li><a href="/">Home</a></li>
             <%if logged_in?%>
-                <li><a href="/<%=current_user.id%>/wishlists">My Wishlists</a></li>
                 <li><a href="/wishlists">Public Wishlists</a></li>
+                <li><a href="/<%=current_user.id%>/wishlists">My Wishlists</a></li>
                 <li><a href="/wishlists/new">New Wishlist</a></li>
                 <li><a href="/items">Items</a></li>
                 <li><a href="/items/new">New Item</a></li>

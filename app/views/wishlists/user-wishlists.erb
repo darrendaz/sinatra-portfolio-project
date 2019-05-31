@@ -14,7 +14,7 @@
                 <tr>
                     <td class="text-left">
                         <a href="/wishlists/<%=wishlist.id%>">
-                        <%=wishlist.name%></a>
+                        <h2><%=wishlist.name%></h2></a>
                     </td>
                     <td class="text-right">
                         <%if wishlist.private == 1%>
@@ -26,7 +26,7 @@
                         </form>
                         <form action="/wishlists/<%= wishlist.id %>/delete" method="post" onsubmit="return confirm('Are you sure?');">
                             <input id="hidden" type="hidden" name="_method" value="delete">
-                            <input class="btn btn-danger" type="button" value="Delete">
+                            <input class="btn btn-danger" type="submit" value="Delete">
                         </form>
                     </td>
                 </tr>

@@ -14,6 +14,11 @@ class ApplicationController < Sinatra::Base
         !!current_user
     end
 
+    def public_wishlist?(wishlist)
+        @public_wishlists = Wishlist.all.where(private: 0)
+        @public_wishlists.include?(wishlist)
+    end
+
     def current_user
         @current_user ||= User.find_by(:id => session[:user_id]) if session[:user_id]
     end

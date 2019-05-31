@@ -30,8 +30,13 @@ class WishlistsController < ApplicationController
 	end
 	
 	get '/wishlists/:id' do
-		@wishlist = current_user.wishlists.find(params[:id])
-		erb :"wishlists/show"
+		if !public_wishlist?(Wishlist.find(params[:id]))
+			@wishlist = current_user.wishlists.find(params[:id])
+			erb :"wishlists/show"
+		else
+			@wishlist = Wishlist.find(params[:id])
+			erb :"wishlists/show"
+		end
 	end
 
 	# patch '/wishlists/:id' do
