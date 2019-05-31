@@ -5,7 +5,7 @@
         <% Item.all.each do |item|%>
             <tr>
                 <td class="text-left">
-                    <a href=""><%=item.name%></a>
+                    <a href="/items/<%=item.id%>"><%=item.name%></a>
                 </td>
             </tr>
         <% end %>
