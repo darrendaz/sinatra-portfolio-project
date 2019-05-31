@@ -9,21 +9,27 @@
   <div class="form-group">
     <input type="hidden" name="private" value="0">
     <label for="private">
-      <input id="private" type="checkbox" name="private" value="1"> Private Wishlist
+      <input id="private" type="checkbox" name="private" value="1"
+        <% if @wishlist.private == 1 %>
+            <%="checked"%> 
+          <% else %>
+            <%="!checked"%>
+          <%end%>
+      > Private Wishlist
     </label>
   </div>
   <h3>Wishlist Items</h3>
   <ul>
     <%@items.each do |item|%>
       <div>
-        <input type="checkbox" name="wishlist[item_ids][]" value="<%=item.id%>" id="<%=item.id%>"
+        <input type="checkbox" name="item_ids[]" value="<%=item.id%>" id="<%=item.id%>"
           <% if @wishlist.items.include?(item)%>
             <%="checked"%> 
           <% else %>
             <%="!checked"%>
           <%end%>
         >
-          <%=item.name%>
+        <%=item.name%>
       </div>
     <%end%>
   </ul>
