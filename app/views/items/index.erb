@@ -1,14 +1,34 @@
 <div class="container-fluid">
     <h3>Items Index</h3>
-    <table class="table">
+    <form action="/wishlists" method="post">
+      <ul>
+        <%current_user.wishlists.each do |wishlist|%>
+          <div>
+            <input type="radio" name="user[wishlist][]" value="<%=wishlist.name%>" id="<%=wishlist.id%>"> <%=wishlist.name%></input>
+          </div>
+        <%end%>
+      </ul>
+      <ul>
+        <%@items.each do |item|%>
+          <div>
+            <input type="checkbox" name="wishlist[item_ids][]" value="<%=item.id%>" id="<%=item.id%>"> <%=item.name%></input></div>
+        <%end%>
+      </ul>
+      <button type="submit" id="submit" class="btn btn-primary">Add Selected Items</button>
+    </form>
+<!--  <table class="table">
         <tbody>
-        <% Item.all.each do |item|%>
+        <% @items.each do |item|%>
             <tr>
-                <td class="text-left">
-                    <a href="/items/<%=item.id%>"><%=item.name%></a>
-                </td>
+              <td>
+
+              </td>
+              <td class="text-left">
+                <a href="/items/<%=item.id%>"><%=item.name%></a>
+              </td>
             </tr>
         <% end %>
         </tbody>
-    </table>
+    </table> -->
+    
 </div>
