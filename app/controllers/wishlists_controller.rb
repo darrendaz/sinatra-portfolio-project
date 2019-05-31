@@ -26,7 +26,6 @@ class WishlistsController < ApplicationController
     end
 
     patch '/wishlists/:id' do
-        binding.pry
         wishlist = current_user.wishlists.find(params[:id])
 
         wishlist.update(name: params[:name], private: params[:private])
@@ -36,6 +35,12 @@ class WishlistsController < ApplicationController
     get '/wishlists/:id/edit' do
         @wishlist = current_user.wishlists.find(params[:id])
         erb :"wishlists/edit"
+    end
+
+    delete '/wishlists/:id/delete' do
+        @wishlist = current_user.wishlists.find(params[:id])
+        @wishlist.delete
+        redirect "/#{current_user.id}/wishlists"
     end
 
 end
