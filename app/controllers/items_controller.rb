@@ -10,7 +10,11 @@ class ItemsController < ApplicationController
 	end
 	
 	get '/items/new' do
-		erb :"items/new"
+		if !current_user.nil?
+			erb :"items/new"
+		else
+			redirect "/items"
+		end
 	end
 	
 	get '/items/:id' do

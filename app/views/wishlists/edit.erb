@@ -10,12 +10,8 @@
     <input type="hidden" name="private" value="0">
     <label for="private">
       <input id="private" type="checkbox" name="private" value="1"
-        <% if @wishlist.private == 1 %>
-            <%="checked"%> 
-          <% else %>
-            <%="!checked"%>
-          <%end%>
-      > Private Wishlist
+        <%= !public_wishlist?(@wishlist) ? "checked" : "!checked" %>> 
+      Private Wishlist
     </label>
   </div>
   <h3>Wishlist Items</h3>
@@ -23,12 +19,7 @@
     <%@items.each do |item|%>
       <div>
         <input type="checkbox" name="item_ids[]" value="<%=item.id%>" id="<%=item.id%>"
-          <% if @wishlist.items.include?(item)%>
-            <%="checked"%> 
-          <% else %>
-            <%="!checked"%>
-          <%end%>
-        >
+          <%= @wishlist.items.include?(item) ? "checked" : "!checked" %>>
         <%=item.name%>
       </div>
     <%end%>

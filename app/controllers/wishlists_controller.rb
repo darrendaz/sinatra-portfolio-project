@@ -4,16 +4,6 @@ class WishlistsController < ApplicationController
 			erb :"wishlists/index"
 	end
 
-	# post '/wishlists' do
-	# 	binding.pry
-	# 	# if !params["item"]["name"].empty?
-	# 	# 	@wishlist.items << Item.create(name: params["item"]["name"])
-	# 	# end
-
-	# 	Wishlist.find(@wishlist.id).update(params[:wishlist][:items])
-	# 	redirect "wishlists/#{@wishlist.id}"
-	# end
-
 	post '/wishlists' do
 			wishlist = Wishlist.create(params)
 			wishlist.user_id = current_user.id
@@ -26,7 +16,11 @@ class WishlistsController < ApplicationController
 	end
 
 	get '/wishlists/new' do
+		if !current_user.nil?
 			erb :"wishlists/new"
+		else
+			redirect "/wishlists"
+		end
 	end
 	
 	get '/wishlists/:id' do
@@ -38,22 +32,6 @@ class WishlistsController < ApplicationController
 			erb :"wishlists/show"
 		end
 	end
-
-	# patch '/wishlists/:id' do
-
-  #   ####### bug fix
-  #   if !params[:wishlist].keys.include?("item_ids")
-  #   	params[:wishlist]["item_ids"] = []
-  #   end
-  #   #######
- 
-  #   @wishlist = Wishlist.find(params[:id])
-  #   @wishlist.update(params["wishlist"])
-	# 		if !params["item"]["name"].empty?
-	# 			@wishlist.items << Item.create(name: params["item"]["name"])
-	# 		end
-  #   redirect "wishlists/#{@wishlist.id}"
-	# end
 
 	patch '/wishlists/:id' do
 		wishlist = current_user.wishlists.find(params[:id])

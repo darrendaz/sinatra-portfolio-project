@@ -5,7 +5,9 @@
         <% @public_wishlists.each do |wishlist|%>
             <tr>
                 <td class="text-left">
-                    <a href="/wishlists/<%=wishlist.id%>"><%=wishlist.name%></a>
+                    <a href="/wishlists/<%=wishlist.id%>">
+                    <h3><%=wishlist.name%></h3>
+                    </a>
                 </td>
             </tr>
         <% end %>
