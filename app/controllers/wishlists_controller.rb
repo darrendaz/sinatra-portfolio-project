@@ -25,8 +25,15 @@ class WishlistsController < ApplicationController
         erb :"wishlists/show"
     end
 
-    get '/wishlists/:id/edit' do
+    patch '/wishlists/:id' do
         binding.pry
+        wishlist = current_user.wishlists.find(params[:id])
+
+        wishlist.update(name: params[:name], private: params[:private])
+        redirect "/wishlists/#{wishlist.id}"
+    end
+
+    get '/wishlists/:id/edit' do
         @wishlist = current_user.wishlists.find(params[:id])
         erb :"wishlists/edit"
     end

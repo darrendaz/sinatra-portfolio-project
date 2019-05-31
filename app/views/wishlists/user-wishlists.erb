@@ -13,9 +13,14 @@
             <% current_user.wishlists.each do |wishlist|%>
                 <tr>
                     <td class="text-left">
-                        <a href="/wishlists/<%=wishlist.id%>"><%=wishlist.name%></a>
+                        <a href="/wishlists/<%=wishlist.id%>">
+                        <%=wishlist.name%></a>
                     </td>
                     <td class="text-right">
+                        <%if wishlist.private == 1%>
+                            <span class="glyphicon glyphicon-eye-close
+" aria-hidden="true"></span>
+                        <%end%>
                         <a href="/wishlists/<%=wishlist.id%>/edit">edit </a>
                         |
                         <a href=""> delete</a>
