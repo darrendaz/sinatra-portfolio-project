@@ -1,0 +1,14 @@
+<div class="container-fluid">
+    <h3>Items Index</h3>
+    <table class="table">
+        <tbody>
+        <% Item.all.each do |item|%>
+            <tr>
+                <td class="text-left">
+                    <a href=""><%=item.name%></a>
+                </td>
+            </tr>
+        <% end %>
+        </tbody>
+    </table>
+</div>
