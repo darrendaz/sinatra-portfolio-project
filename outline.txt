@@ -21,6 +21,6 @@ x url
 x quantity
 - bought / unbought
 x wishlist_id
-- belongs to wishlist
-- items can be added to / removed from wishlists
-- items can be CRUD
+x belongs to wishlist
+x items can be added to / removed from wishlists
+x items can be CRUD (only created for now)
