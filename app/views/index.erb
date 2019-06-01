@@ -1,15 +1,17 @@
 <div class="container-fluid">
     <%if logged_in?%>
         <h1>Welcome <%= @current_user.username %></h1>
-        <div>
-            <a href="/<%=current_user.id%>/wishlists"><h1>My Wishlists</h1></a>
-        </div>
-        <div>
-            <a href="/wishlists"><h1>Public Wishlists</h1></a>
-        </div>
-        <div>
-            <a href="/items"><h1>Items</h1></a>
-        </div>
+        <ul>
+            <li>
+                <a href="/<%=current_user.id%>/wishlists"><h2>My Wishlists</h2></a>
+            </li>
+            <li>
+                <a href="/wishlists"><h2>Public Wishlists</h2></a>
+            </li>
+            <li>
+                <a href="/items"><h2>Items</h2></a>
+            </li>
+        </ul>
     <%else%>
         <h1>Welcome to Wishlists!</h1>
     <%end%>
