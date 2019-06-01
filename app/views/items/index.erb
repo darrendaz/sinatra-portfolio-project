@@ -1,0 +1,16 @@
+<div class="container-fluid">
+    <h3>Items Index</h3>
+    <table class="table">
+      <tbody>
+        <% @items.each do |item|%>
+            <tr>
+              <td class="text-left">
+                <a href="/items/<%=item.id%>"><%=item.name%></a>
+              </td>
+            </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <input class="btn btn-success" type="button" href="/items/new" value="Create New Item">
+    
+</div>

@@ -1,0 +1,28 @@
+
+
+<form action="/wishlists/<%= @wishlist.id%>" method="post">
+<input type="hidden" name="_method" value="patch">
+  <div class="form-group">
+    <label for="wishlist-name">Wishlist Name</label>
+    <input type="name" class="form-control" id="wishlist-name" name="name" value="<%=@wishlist.name%>">
+  </div>
+  <div class="form-group">
+    <input type="hidden" name="private" value="0">
+    <label for="private">
+      <input id="private" type="checkbox" name="private" value="1"
+        <%= !public_wishlist?(@wishlist) ? "checked" : "!checked" %>> 
+      Private Wishlist
+    </label>
+  </div>
+  <h3>Wishlist Items</h3>
+  <ul>
+    <%@items.each do |item|%>
+      <div>
+        <input type="checkbox" name="item_ids[]" value="<%=item.id%>" id="<%=item.id%>"
+          <%= @wishlist.items.include?(item) ? "checked" : "!checked" %>>
+        <%=item.name%>
+      </div>
+    <%end%>
+  </ul>
+  <button type="submit" id="submit" class="btn btn-primary">Save</button>
+</form>

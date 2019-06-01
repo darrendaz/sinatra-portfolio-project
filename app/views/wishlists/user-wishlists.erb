@@ -1,0 +1,39 @@
+<div class="container-fluid">
+    <h3><%=current_user.name%>'s Wishlists</h3>
+    <table class="table">
+        <tbody>
+        <% if current_user.wishlists.empty?%>
+            <tr>
+                <td class="text-left">
+                    <p>You haven't created a wishlist yet.</p>
+                    <a href="/wishlists/new">Create a new wishlist</a>
+                </td>
+            </tr>
+        <%else%>
+            <% current_user.wishlists.each do |wishlist|%>
+                <tr>
+                    <td class="text-left">
+                        <a href="/wishlists/<%=wishlist.id%>">
+                        <h2><%=wishlist.name%></h2></a>
+                    </td>
+                    <td class="text-right">
+                        <%if wishlist.private == 1%>
+                        <span class="glyphicon glyphicon-eye-close
+" aria-hidden="true"></span>
+                        <%end%>
+                        <form action="/wishlists/<%= wishlist.id %>/edit" method="get">
+                            <input class="btn btn-info" type="submit" value="Edit">
+                        </form>
+                        <form action="/wishlists/<%= wishlist.id %>/delete" method="post" onsubmit="return confirm('Are you sure?');">
+                            <input id="hidden" type="hidden" name="_method" value="delete">
+                            <input class="btn btn-danger" type="submit" value="Delete">
+                        </form>
+                    </td>
+                </tr>
+            <% end %>
+        <%end%>
+        </tbody>
+    </table>
+    <input class="btn btn-success" type="button" href="/wishlists/new" value="Create New Wishlist">
+
+</div>

@@ -1,0 +1,31 @@
+<div class="container-fluid">
+    <h3><%=@wishlist.name%></h3>
+    <table class="table">
+        <tbody>
+					<% if @wishlist.items.empty? %>
+						<% if !current_user.nil? && @wishlist.user_id == current_user.id %>
+							<tr>
+								<td class="text-left">
+									<p>You haven't added any items yet</p>
+									<a href="/wishlists/<%=@wishlist.id%>/edit">Add items</a>
+								</td>
+							</tr>
+						<%else%>
+							<tr>
+								<td class="text-left">
+									<p>The creator of this list hasn't added any items yet</p>
+								</td>
+							</tr>
+						<%end%>
+					<%else%>
+						<% @wishlist.items.each do |item|%>
+							<tr>
+								<td class="text-left">
+									<a href="/items/<%=item.id%>">
+									<h3><%=item.name%></h3></a>
+								</td>
+							</tr>
+						<% end %>
+					<%end%>
+        </tbody>
+</div>

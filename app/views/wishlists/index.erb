@@ -1,0 +1,16 @@
+<div class="container-fluid">
+    <h3>Public Wishlists</h3>
+    <table class="table">
+        <tbody>
+        <% @public_wishlists.each do |wishlist|%>
+            <tr>
+                <td class="text-left">
+                    <a href="/wishlists/<%=wishlist.id%>">
+                    <h3><%=wishlist.name%></h3>
+                    </a>
+                </td>
+            </tr>
+        <% end %>
+        </tbody>
+    </table>
+</div>
