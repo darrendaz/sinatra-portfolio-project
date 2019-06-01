@@ -10,15 +10,15 @@ class ItemsController < ApplicationController
 	end
 	
 	get '/items/new' do
-		if !current_user.nil?
-			erb :"items/new"
-		else
-			redirect "/items"
-		end
+		erb :"items/new"
 	end
 	
 	get '/items/:id' do
 		@item = Item.find(params[:id])
 		erb :"items/show"
+	end
+	
+	get '/items/:id/edit' do
+		redirect "/items/#{params[:id]}"
 	end
 end
