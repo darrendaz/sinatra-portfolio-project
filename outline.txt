@@ -1,26 +1,26 @@
 Wishlist Tracker
 
 Users
-- name
-- username
-- password
-- has many wishlists
-- has many items through wishlists
+x name
+x username
+x password
+x has many wishlists
+x has many items through wishlists
 
 wishlists
-- name
-- user_id
-- private / public
-- belongs to user
-- has many items
-- wishlists can be CRUD by the user
+x name
+x user_id
+x private / public
+x belongs to user
+x has many items
+x wishlists can be CRUD by the user
 
 items
-- name
-- url
-- quantity
+x name
+x url
+x quantity
 - bought / unbought
-- wishlist_id
+x wishlist_id
 - belongs to wishlist
 - items can be added to / removed from wishlists
 - items can be CRUD

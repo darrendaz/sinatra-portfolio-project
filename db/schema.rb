@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_30_040935) do
+ActiveRecord::Schema.define(version: 2019_06_01_010219) do
 
   create_table "items", force: :cascade do |t|
     t.string "name"
@@ -28,7 +28,6 @@ ActiveRecord::Schema.define(version: 2019_05_30_040935) do
   create_table "wishlists", force: :cascade do |t|
     t.string "name"
     t.integer "private"
-    t.integer "bought"
     t.integer "user_id"
   end
 
