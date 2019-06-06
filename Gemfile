@@ -15,5 +15,6 @@ gem 'bcrypt'
 gem 'tux'
 gem 'sinatra-activerecord'
 gem 'require_all'
+gem 'sinatra-flash'
 
 

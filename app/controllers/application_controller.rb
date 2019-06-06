@@ -4,6 +4,7 @@ class ApplicationController < Sinatra::Base
         set :views, 'app/views'
         enable :sessions
         set :session_secret, "secret"
+        register Sinatra::Flash
     end
 
     get '/' do
@@ -14,9 +15,9 @@ class ApplicationController < Sinatra::Base
         session.has_key?(:user_id)
     end
 
-    def public_wishlist?(wishlist)
-        @public_wishlists = Wishlist.all.where(private: 0)
-        @public_wishlists.include?(wishlist)
+    def private_wishlist?(wishlist)
+        @private_wishlists = Wishlist.all.where(private: 1)
+        @private_wishlists.include?(wishlist)
     end
 
     def current_user

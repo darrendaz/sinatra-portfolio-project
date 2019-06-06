@@ -24,21 +24,21 @@ class WishlistsController < ApplicationController
 	end
 	
 	get '/wishlists/:id' do
-		found = Wishlist.find(params[:id])
-		if logged_in? && !public_wishlist?(Wishlist.find(params[:id]))
+		wishlist = Wishlist.find_by(id: params[:id])
+		if logged_in? && private_wishlist?(wishlist) &&current_user.wishlists.include?(wishlist)
 			@wishlist = current_user.wishlists.find(params[:id])
 			erb :"wishlists/show"
-		elsif public_wishlist?(found)
-			@wishlist = found
+		elsif !private_wishlist?(wishlist) && !wishlist.nil?
+			@wishlist = wishlist
 			erb :"wishlists/show"
 		else
+			flash[:notice] = "Sorry the wishlist you've requested is not available."
 			redirect "/wishlists"
 		end
 	end
 
 	patch '/wishlists/:id' do
 		wishlist = current_user.wishlists.find(params[:id])
-		binding.pry
 		wishlist.update(name: params[:name], private: params[:private], item_ids: params[:item_ids])
 		redirect "/wishlists/#{wishlist.id}"
 	end

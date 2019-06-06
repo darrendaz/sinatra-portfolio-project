@@ -10,7 +10,7 @@
     <input type="hidden" name="private" value="0">
     <label for="private">
       <input id="private" type="checkbox" name="private" value="1"
-        <%= !public_wishlist?(@wishlist) ? "checked" : "!checked" %>> 
+        <%= private_wishlist?(@wishlist) ? "checked" : "!checked" %>> 
       Private Wishlist
     </label>
   </div>
