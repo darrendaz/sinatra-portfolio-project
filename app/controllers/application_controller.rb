@@ -11,7 +11,7 @@ class ApplicationController < Sinatra::Base
     end
 
     def logged_in?
-        !!current_user
+        session.has_key?(:user_id)
     end
 
     def public_wishlist?(wishlist)
@@ -20,7 +20,7 @@ class ApplicationController < Sinatra::Base
     end
 
     def current_user
-        @current_user ||= User.find_by(:id => session[:user_id]) if session[:user_id]
+        @current_user ||= User.find_by(:id => session[:user_id])
     end
 
 end

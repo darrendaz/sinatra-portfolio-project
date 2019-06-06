@@ -1,6 +1,6 @@
 <div class="container-fluid">
     <%if logged_in?%>
-        <h1>Welcome <%= @current_user.username %></h1>
+        <h1>Welcome <%= current_user.username %></h1>
         <ul>
             <li>
                 <a href="/<%=current_user.id%>/wishlists"><h2>My Wishlists</h2></a>
