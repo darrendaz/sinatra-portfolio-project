@@ -9,7 +9,7 @@ class UsersController < ApplicationController
         else
             user = User.create(params)
             session[:user_id] = user.id
-            redirect "/users/#{user.id}"
+            redirect "/"
         end
     end
 
